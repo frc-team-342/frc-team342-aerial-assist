@@ -10,8 +10,7 @@ public class RobotMap {
     public static final int PWM_DEVICE_LEFT_FRONT_DRIVE_MOTOR = 5;
     public static final int PWM_DEVICE_LEFT_REAR_DRIVE_MOTOR = 4;
     public static final int PWM_DEVICE_RIGHT_REAR_DRIVE_MOTOR = 7;
-    public static final int PWM_CHANNEL_PICKUP = 3;
-    public static final int DIO_CHANNEL_PICKUP_SWITCH = 8;
+    public static final int PWM_CHANNEL_LIFTSYSTEM = 3;
 
     //Joystick ports
     public static final int JOYSTICK_DRIVE_CONTROL = 1;
