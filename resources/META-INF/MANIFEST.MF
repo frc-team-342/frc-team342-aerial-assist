@@ -1,4 +1,4 @@
-MIDlet-Name: frc-team-342-aerial-assist
+MIDlet-Name: frc-team342-aerial-assist
 MIDlet-Version: 1.0.0
 MIDlet-Vendor: FIRST
 MIDlet-1: AerialAssistRobot, , org.first.team342.AerialAssistRobot
