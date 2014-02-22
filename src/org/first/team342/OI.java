@@ -21,7 +21,6 @@ public class OI {
     private static final OI INSTANCE = new OI();
 
     private OI() {
-        Preferences preferences = Preferences.getInstance();
         this.driveController = new Controller(RobotMap.JOYSTICK_DRIVE_CONTROL);
         JoystickButton liftDown = new JoystickButton(driveController, 3);
         JoystickButton liftUp = new JoystickButton(driveController, 2);
@@ -47,10 +46,6 @@ public class OI {
 
         JoystickButton testLightSensors = new JoystickButton(driveController, 7);
         testLightSensors.whileHeld(new TestLightSensorsCommand());
-//        catapultReload.whileHeld(new CatapultReloadCommand());
-//        catapultReload.whileHeld(new CatapultReloadCommand());
-//        catapultReload.whenReleased(new CatapultStopCommand());
-//        catapultRelease.whenReleased(new CatapultStopCommand());
     }
 
     public static OI getInstance() {
