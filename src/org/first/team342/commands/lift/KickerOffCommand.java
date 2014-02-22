@@ -6,8 +6,6 @@
 package org.first.team342.commands.lift;
 
 import org.first.team342.commands.CommandBase;
-import edu.wpi.first.wpilibj.command.Command;
-import org.first.team342.RobotUtilities;
 import org.first.team342.subsystems.LiftSystem;
 
 /**
@@ -21,7 +19,6 @@ public class KickerOffCommand extends CommandBase {
     public KickerOffCommand() {
         this.liftsystem = LiftSystem.getInstance();
         this.requires(this.liftsystem);
-        this.liftsystem.kickerOff();
     }
 
     public void initialize() {
@@ -43,5 +40,4 @@ public class KickerOffCommand extends CommandBase {
     protected void end() {
 
     }
-
 }
