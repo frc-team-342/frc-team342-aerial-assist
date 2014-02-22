@@ -20,6 +20,8 @@
 package org.first.team342;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Gyro;
+import org.first.team342.subsystems.DriveSystem;
 
 /**
  *
@@ -56,6 +58,7 @@ public class Controller extends Joystick {
         }
         return Rot;
     }
+    
 
     /*public double getLeftY(){
      return this.getY();

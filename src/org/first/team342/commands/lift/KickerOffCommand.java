@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package org.first.team342.commands.lift;
 
 import org.first.team342.commands.CommandBase;
@@ -15,35 +14,34 @@ import org.first.team342.subsystems.LiftSystem;
  *
  * @author Team342
  */
-public class StopLiftCommand extends CommandBase {
-    
+public class KickerOffCommand extends CommandBase {
+
     private LiftSystem liftsystem;
 
-    public StopLiftCommand() {
+    public KickerOffCommand() {
         this.liftsystem = LiftSystem.getInstance();
         this.requires(this.liftsystem);
-
+        this.liftsystem.kickerOff();
     }
 
     public void initialize() {
-       
+
     }
 
     public void execute() {
-        RobotUtilities.updateLiftStatus("Stopped");
-        this.liftsystem.stop();
+        this.liftsystem.kickerOff();
     }
 
     public boolean isFinished() {
         return true;
-       
-    }
-
-    public void end() {
     }
 
     public void interrupted() {
-        
+
     }
-    
+
+    protected void end() {
+
+    }
+
 }

@@ -1,35 +1,40 @@
 package org.first.team342.commands;
 
+import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.first.team342.OI;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
- * subsystem elsewhere in your code in your code use CommandBase.exampleSubsystem
+ * subsystem elsewhere in your code in your code use
+ * CommandBase.exampleSubsystem
+ *
  * @author Author
  */
 public abstract class CommandBase extends Command {
 
-    public static OI oi;
-    // Create a single static instance of all of your subsystems
-
-    public static void init() {
-        // This MUST be here. If the OI creates Commands (which it very likely
-        // will), constructing it during the construction of CommandBase (from
-        // which commands extend), subsystems are not guaranteed to be
-        // yet. Thus, their requires() statements may grab null pointers. Bad
-        // news. Don't move it.
-
-        // Show what command your subsystem is running on the SmartDashboard
-    }
+    private boolean finished;
 
     public CommandBase(String name) {
         super(name);
+        this.finished = false;
     }
 
     public CommandBase() {
         super();
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
+    }
+
+    protected boolean isFinished() {
+        return this.finished;
+    }
+
+    public void updateStatus() {
+        DriverStationLCD lcd = DriverStationLCD.getInstance();
+        lcd.println(DriverStationLCD.Line.kUser1, 1, this.getName());
+        lcd.updateLCD();
     }
 }

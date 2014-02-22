@@ -20,24 +20,22 @@
 package org.first.team342.commands.drive;
 
 import edu.wpi.first.wpilibj.Joystick;
-import org.first.team342.Controller;
 import org.first.team342.OI;
+import org.first.team342.RobotUtilities;
 import org.first.team342.commands.CommandBase;
-import org.first.team342.subsystems.Drive;
+import org.first.team342.subsystems.DriveSystem;
 
 /*
  * @author FIRST Team 342
  */
 public class DriveWithJoystick extends CommandBase {
 
-    private Drive drive = Drive.getInstance();
+    private DriveSystem drive = DriveSystem.getInstance();
     private Joystick joystick;
 
     public DriveWithJoystick() {
-        this.drive = Drive.getInstance();
+        this.drive = DriveSystem.getInstance();
         this.requires(this.drive);
-        System.out.println("Constructing joystick");
-
     }
 
     protected void initialize() {
@@ -46,6 +44,7 @@ public class DriveWithJoystick extends CommandBase {
     }
 
     protected void execute() {
+        RobotUtilities.updateDriveStatus("Connected");
         this.drive.driveWithJoystick(this.joystick);
     }
 

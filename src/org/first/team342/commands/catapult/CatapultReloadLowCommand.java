@@ -7,17 +7,16 @@ package org.first.team342.commands.catapult;
 
 import org.first.team342.commands.CommandBase;
 import org.first.team342.subsystems.CatapultSystem;
-import org.first.team342.RobotUtilities;
 
 /**
  *
- * @author Team342
+ * @author FIRST Team 342
  */
-public class CatapultReleaseCommand extends CommandBase {
+public class CatapultReloadLowCommand extends CommandBase {
 
     public CatapultSystem catapult;
-    
-    public CatapultReleaseCommand() {
+
+    public CatapultReloadLowCommand() {
         this.catapult = CatapultSystem.getInstance();
         this.requires(this.catapult);
     }
@@ -26,20 +25,26 @@ public class CatapultReleaseCommand extends CommandBase {
     }
 
     protected void execute() {
-        RobotUtilities.updateCatapultStatus("Releasing...");
-        System.out.println(this.catapult.switchReleased());
-        this.catapult.release();        
-        
+        if (!catapult.switchLocked()) {
+            catapult.reloadRelease();
+        } else {
+            this.catapult.stopRelease();
+            if (!catapult.isHighPower() && !catapult.isLowPower()) {
+                this.catapult.reload();
+            } else {
+                this.catapult.stop();
+            }
+        }
     }
 
     protected boolean isFinished() {
-        return true;
+        return this.catapult.isLowPower();
     }
 
     protected void end() {
+        catapult.stop();
     }
 
     protected void interrupted() {
     }
-
 }

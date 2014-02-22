@@ -5,6 +5,7 @@
  */
 package org.first.team342.commands.lift;
 
+import org.first.team342.RobotUtilities;
 import org.first.team342.commands.CommandBase;
 import org.first.team342.subsystems.LiftSystem;
 
@@ -25,13 +26,12 @@ public class LiftUpCommand extends CommandBase {
     }
 
     protected void execute() {
+        RobotUtilities.updateLiftStatus("Going Up");
         this.liftsystem.up();
-
     }
 
     protected boolean isFinished() {
-        return true;
-
+        return this.liftsystem.forkUp();
     }
 
     protected void end() {

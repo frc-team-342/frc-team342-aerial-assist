@@ -3,35 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.first.team342.commands.lift;
+package org.first.team342.commands.gyro;
 
 import org.first.team342.RobotUtilities;
 import org.first.team342.commands.CommandBase;
-import org.first.team342.subsystems.LiftSystem;
+import edu.wpi.first.wpilibj.Gyro;
+import edu.wpi.first.wpilibj.AnalogChannel;
+import org.first.team342.subsystems.DriveSystem;
 
 /**
  *
  * @author Team342
  */
-public class LiftDownCommand extends CommandBase {
+public class GyroReset extends CommandBase {
 
-    private LiftSystem liftsystem;
+    private DriveSystem drive;
 
-    public LiftDownCommand() {
-        this.liftsystem = LiftSystem.getInstance();
-        this.requires(this.liftsystem);
+    public GyroReset() {
+        this.drive = DriveSystem.getInstance();
+        requires(this.drive);
+
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-        RobotUtilities.updateLiftStatus("Going Down");
-        this.liftsystem.down();
+        this.drive.gyroReset();
     }
 
-    protected boolean isFinished() {
-        return this.liftsystem.forkDown();
+    public boolean isFinished() {
+        return true;
     }
 
     protected void end() {

@@ -3,35 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.first.team342.commands.lift;
+package org.first.team342.commands.catapult;
 
 import org.first.team342.RobotUtilities;
 import org.first.team342.commands.CommandBase;
-import org.first.team342.subsystems.LiftSystem;
+import org.first.team342.subsystems.CatapultSystem;
 
 /**
  *
  * @author Team342
  */
-public class LiftDownCommand extends CommandBase {
+public class CatapultStopCommand extends CommandBase {
 
-    private LiftSystem liftsystem;
+    public CatapultSystem catapult;
 
-    public LiftDownCommand() {
-        this.liftsystem = LiftSystem.getInstance();
-        this.requires(this.liftsystem);
+    public CatapultStopCommand() {
+        this.catapult = CatapultSystem.getInstance();
+        this.requires(this.catapult);
+        
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-        RobotUtilities.updateLiftStatus("Going Down");
-        this.liftsystem.down();
+        RobotUtilities.updateCatapultStatus("Stopping...");
+        this.catapult.stopRelease();
     }
 
     protected boolean isFinished() {
-        return this.liftsystem.forkDown();
+        return true;
     }
 
     protected void end() {
