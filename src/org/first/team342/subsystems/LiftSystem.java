@@ -22,7 +22,7 @@ public class LiftSystem extends Subsystem {
     private static final LiftSystem INSTANCE = new LiftSystem();
     public static final double DEFAULT_SPEED_UP = 0.80;
     public static final double DEFAULT_SPEED_DOWN = -0.40;
-    public static final double DEFAULT_KICKER_SPEED = 0.75;
+    public static final double DEFAULT_KICKER_SPEED = -0.75;
 
     private final SpeedController liftMotor;
     private final DigitalInput forkUp;
