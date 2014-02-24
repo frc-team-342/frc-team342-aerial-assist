@@ -17,7 +17,7 @@ public class RobotMap {
     public static final int DIO_CHANNEL_LOCKED_SWITCH = 2;
     public static final int DIO_CHANNEL_RELEASED_SWITCH = 1;
     //kicker
-    public static final int PWM_CHANNEL_KICKER = 10;
+    public static final int PWM_CHANNEL_KICKER = 7;
     //joystick ports
     public static final int JOYSTICK_DRIVE_CONTROL = 1;
     //drive system
